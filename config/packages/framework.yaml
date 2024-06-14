@@ -18,6 +18,18 @@ framework:
     php_errors:
         log: true
 
+    serializer:
+        enable_annotations: true
+
+    http_client:
+        scoped_clients:
+            bin.list.service.client:
+                base_uri: '%env(BINLIST_SERVICE_URL)%'
+            handy.bin.service.client:
+                base_uri: '%env(HANDY_BIN_SERVICE_URL)%'
+            exchange_rates.service.client:
+                base_uri: '%env(EXCHANGE_RATES_SERVICE_URL)%'
+
 when@test:
     framework:
         test: true
